@@ -5,36 +5,21 @@ module Quovo
 
       fields %i(
         id
+        category
+        connection_id
+        institution_id
+        institution_name
+        is_disabled
+        is_taxable
+        name
         nickname
-        is_inactive
-        brokerage
-        brokerage_name
-        user
+        owner_type
+        type
+        type_confidence
+        user_id
         username
-        status
         value
-        config_instructions
-        failures
-        update_count
-        opened
-        updated
-        last_good_sync
       )
-
-      undef :opened
-      def opened
-        @opened.to_time
-      end
-
-      undef :updated
-      def updated
-        @updated.to_time
-      end
-
-      undef :last_good_sync
-      def last_good_sync
-        @last_good_sync.to_time
-      end
     end
   end
 end
