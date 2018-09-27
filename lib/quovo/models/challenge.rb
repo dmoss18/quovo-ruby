@@ -4,16 +4,14 @@ module Quovo
       using Quovo::Refinements::Cast
 
       fields %i(
-        account
-        type
-        is_answered
-        last_asked
-        should_answer
-        question
-        image
         choices
-        image_choices
         id
+        expires
+        image
+        image_choices
+        question
+        should_answer
+        type
       )
 
       undef :image

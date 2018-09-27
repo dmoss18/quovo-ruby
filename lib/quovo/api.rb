@@ -20,6 +20,10 @@ module Quovo
       @users ||= Quovo::Api::Users.new
     end
 
+    def connections
+      @connections ||= Quovo::Api::Connections.new
+    end
+
     def positions
       @positions ||= Quovo::Api::Positions.new
     end

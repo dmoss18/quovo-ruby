@@ -4,8 +4,7 @@ module Quovo
       using Quovo::Refinements::Cast
 
       fields %i(
-        account
-        has_realtime
+        connection_id
         config_instructions
         progress
         status

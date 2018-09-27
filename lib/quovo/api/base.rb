@@ -17,7 +17,7 @@ module Quovo
                  end
 
         request(method, path, params, format) do |req|
-          req['Authorization'] = "Bearer #{token.get}"
+          req['Authorization'] = "Bearer 5c95306013ca5abef074dacc2d156dd045f68fc35d094900e5f39d2a9fac7079"
         end || {}
       end
 
