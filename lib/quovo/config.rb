@@ -9,7 +9,7 @@ module Quovo
     attr_accessor :debug
     attr_accessor :strip_sensitive_params
 
-    DEFAULT_ENDPOINT = 'https://api.quovo.com/v2'.freeze
+    DEFAULT_ENDPOINT = 'https://api.quovo.com/v3'.freeze
 
     def initialize
       @username               = nil

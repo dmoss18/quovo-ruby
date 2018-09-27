@@ -6,7 +6,6 @@ module Quovo
         username
         email
         name
-        phone
         value
       )
     end

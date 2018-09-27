@@ -18,6 +18,13 @@ module Quovo
           .cast(User)
       end
 
+      def find_by(username:)
+        username.require!(as: :username)
+        api(:get, "/users?username=#{username}")
+          .fetch('user')
+          .cast(User)
+      end
+
       def create(params)
         params
           .permit!(:username, :name, :email, :phone)
