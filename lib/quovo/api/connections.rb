@@ -42,7 +42,7 @@ module Quovo
       end
 
       def for_user(user_id)
-        id.require!(as: :id)
+        user_id.require!(as: :user_id)
         api(:get, "/users/#{user_id}/connections")
           .fetch('connections')
           .cast(Connection)
