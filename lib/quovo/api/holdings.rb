@@ -44,15 +44,10 @@ module Quovo
 
       def paginated_url(base, params)
         params = params.with_indifferent_access
-        puts params
         params.permit!(:count, :cursor)
         require 'pry'
         binding.pry
-        query_string = params.compact.map do |key, value|
-          "#{key}=#{value}"
-        end.join('&')
-        binding.pry
-        "#{base}?#{query_string}"
+        "#{base}?#{params.compact.to_query}"
       end
     end
   end
