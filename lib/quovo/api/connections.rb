@@ -48,6 +48,7 @@ module Quovo
           .cast(Connection)
       end
 
+      # Use this to initiate a sync, update a sync's credentials, or answer connection's challenges
       def sync(id, params, answers = {})
         id.require!(as: :id)
         params.permit!(:passcode, :type, :username)
@@ -59,6 +60,13 @@ module Quovo
 
         params = params.merge({ answers: answers.to_json })
         api(:post, "/connections/#{id}/sync", params)
+          .fetch('sync')
+          .cast(Sync)
+      end
+
+      def progress(id)
+        id.require!(as: :id)
+        api(:get, "/connections/#{id}/sync")
           .fetch('sync')
           .cast(Sync)
       end
