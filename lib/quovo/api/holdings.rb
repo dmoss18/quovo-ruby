@@ -10,7 +10,6 @@ module Quovo
 
       def all(params = {})
         url = paginated_url("/holdings", params)
-        puts url
         api(:get, url)
           .fetch('holdings')
           .cast(Holding)
@@ -43,10 +42,7 @@ module Quovo
       private
 
       def paginated_url(base, params)
-        params = params.with_indifferent_access
         params.permit!(:count, :cursor)
-        require 'pry'
-        binding.pry
         "#{base}?#{params.compact.to_query}"
       end
     end
