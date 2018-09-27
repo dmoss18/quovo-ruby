@@ -47,5 +47,9 @@ module Quovo
     def holdings
       @holdings ||= Quovo::Api::Holdings.new
     end
+
+    def institutions
+      @institutions ||= Quovo::Api::Institutions.new
+    end
   end
 end

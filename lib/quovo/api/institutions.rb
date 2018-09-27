@@ -24,7 +24,7 @@ module Quovo
         query_string = { query: query, auth_type: auth_type }.compact.to_query
         api(:get, "/institutions?#{query_string}")
           .fetch("institutions")
-          .case(Institution)
+          .cast(Institution)
       end
     end
   end
