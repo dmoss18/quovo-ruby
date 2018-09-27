@@ -43,5 +43,9 @@ module Quovo
     def extras
       @extras ||= Quovo::Api::Extras.new
     end
+
+    def holdings
+      @holdings ||= Quovo::Api::Holdings.new
+    end
   end
 end

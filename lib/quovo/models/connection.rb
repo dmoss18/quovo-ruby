@@ -16,6 +16,10 @@ module Quovo
         username
         value
       )
+
+      def accounts
+        Quovo.accounts.for_connection(id)
+      end
     end
   end
 end

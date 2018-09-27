@@ -34,8 +34,7 @@ module Quovo
 
       def update(id, params)
         id.require!(as: :id)
-        params
-          .permit!(:is_disabled, :nickname, :type)
+        params.permit!(:is_disabled, :nickname, :type)
         api(:put, "/accounts/#{id}", params)
           .fetch('account')
           .cast(Account)

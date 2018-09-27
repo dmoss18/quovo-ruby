@@ -20,6 +20,10 @@ module Quovo
         username
         value
       )
+
+      def holdings
+        Quovo.holdings.for_account(id)
+      end
     end
   end
 end
