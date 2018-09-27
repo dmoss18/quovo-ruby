@@ -4,6 +4,7 @@ module Quovo
       using Quovo::Refinements::Cast
 
       fields %i(
+        connection_id
         choices
         id
         expires

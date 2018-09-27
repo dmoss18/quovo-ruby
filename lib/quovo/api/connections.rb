@@ -48,10 +48,16 @@ module Quovo
           .cast(Connection)
       end
 
-      def sync(id, params)
-        # Note: answers param is an array of objects each containing a `challenge_id` and `answer` field, where `challenge_id` is the targeted challenge's id
+      def sync(id, params, answers = {})
         id.require!(as: :id)
-        params.permit!(:answers, :passcode, :type, :username)
+        params.permit!(:passcode, :type, :username)
+        if answers.present?
+          answers.each do |answer|
+            answer.require!(:answer, :challenge_id)
+          end
+        end
+
+        params = params.merge({ answers: answers.to_json })
         api(:post, "/connections/#{id}/sync", params)
           .fetch('sync')
           .cast(Sync)

@@ -3,6 +3,7 @@ module Quovo
     class Choice < Base
       fields %i(
         category
+        key
         value
       )
     end

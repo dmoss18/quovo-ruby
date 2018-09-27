@@ -4,40 +4,26 @@ module Quovo
       using Quovo::Refinements::Cast
       using Quovo::Refinements::Require
 
-      def for_account(id)
+      # Challenge types: choices, image, image_choices, question
+
+      def for_connection(id)
         id.require!(as: :id)
-        api(:get, "/accounts/#{id}/challenges")
+        api(:get, "/connections/#{id}/challenges")
           .fetch('challenges')
           .cast(Challenge)
       end
 
-      def answers!(account_id, answers)
-        account_id.require!(as: 'account_id')
+      # Submit answers for challenges
+      def submit_answers(connection_id, answers)
+        connection_id.require!(as: 'connection_id')
         answers.require!(as: 'answers')
         answers.each do |answer|
           answer.require!(:answer, :question)
         end
 
         params = { questions: answers.to_json }
-        api(:put, "/accounts/#{account_id}/challenges", params)
+        api(:put, "/connections/#{connection_id}/challenges", params)
           .fetch('challenges')
-          .cast(Challenge)
-      end
-
-      def find(challenge_id)
-        challenge_id.require!(as: 'challenge_id')
-        api(:get, "/challenges/#{challenge_id}")
-          .fetch('challenge')
-          .cast(Challenge)
-      end
-
-      def answer!(challenge_id, answer)
-        challenge_id.require!(as: 'challenge_id')
-        answer.require!(as: 'answer')
-
-        params = { answer: answer.to_json }
-        api(:put, "/challenges/#{challenge_id}", params)
-          .fetch('challenge')
           .cast(Challenge)
       end
     end
