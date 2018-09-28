@@ -1,7 +1,7 @@
 module Quovo
   module Models
     class Institution < Base
-      using Quovo::Refinements::ToTime
+      using Quovo::Refinements::Cast
 
       fields %i(
         access_info

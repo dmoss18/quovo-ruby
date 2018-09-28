@@ -1,6 +1,8 @@
 module Quovo
   module Models
     class Auth < Base
+      using Quovo::Refinements::Cast
+
       fields %i(
         account_name
         account_number

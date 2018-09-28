@@ -1,6 +1,8 @@
 module Quovo
   module Models
     class OwnerDetail < Base
+      using Quovo::Refinements::Cast
+
       fields %i(
         address
         dob
