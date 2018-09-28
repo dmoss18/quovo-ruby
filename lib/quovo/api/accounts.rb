@@ -39,6 +39,13 @@ module Quovo
           .fetch('account')
           .cast(Account)
       end
+
+      def auth(id)
+        id.require!(as: :id)
+        api(:get, "/accounts/#{id}/auth")
+          .fetch('auth')
+          .cast(Auth)
+      end
     end
   end
 end
