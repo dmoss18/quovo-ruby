@@ -18,7 +18,7 @@ gem 'quovo'
 ## Configuration
 
 ```ruby
-  Quovo.configurate do |config|
+  Quovo.configure do |config|
     config.username               = 'username'
     config.password               = 'password'
     config.request_timeout        = 30.seconds # by default 60 seconds
@@ -34,7 +34,7 @@ If you use Rails put this configuration into `config/initializers/quovo.rb`.
 you need to set storage object in configuration:
 
 ```ruby
-  Quovo.configurate do |config|
+  Quovo.configure do |config|
     # ...
     config.token_storage = Object.new.tap do |o|
       def o.read(key)
@@ -51,7 +51,7 @@ you need to set storage object in configuration:
 You can also use `Rails.cache` as storage:
 
 ```ruby
-  Quovo.configurate do |config|
+  Quovo.configure do |config|
     # ...
     config.token_storage = Rails.cache
   end
