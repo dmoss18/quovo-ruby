@@ -21,7 +21,7 @@ module Quovo
       def create(user_id, params)
         user_id.require!(as: :user_id)
         params.require!(:institution_id)
-        params.permit!(:username, :passcode)
+        params.permit!(:username, :passcode, :institution_id)
         api(:post, "/users/#{user_id}/connections", params)
           .fetch('connection')
           .cast(Connection)

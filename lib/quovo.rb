@@ -23,6 +23,10 @@ require 'quovo/request'
 require 'quovo/token'
 require 'quovo/fake'
 
+require 'quovo/enums/account_type'
+require 'quovo/enums/holding_type'
+require 'quovo/enums/type_confidence'
+
 require 'quovo/models/base'
 require 'quovo/models/access_info'
 require 'quovo/models/address'
