@@ -24,7 +24,10 @@ require 'quovo/token'
 require 'quovo/fake'
 
 require 'quovo/enums/account_type'
+require 'quovo/enums/auth_type'
 require 'quovo/enums/holding_type'
+require 'quovo/enums/sync_status'
+require 'quovo/enums/sync_type'
 require 'quovo/enums/type_confidence'
 
 require 'quovo/models/base'

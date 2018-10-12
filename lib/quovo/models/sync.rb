@@ -14,6 +14,14 @@ module Quovo
       def progress
         @progress.cast(Progress)
       end
+
+      def good?
+        status == Quovo::Enums::SyncStatus::GOOD
+      end
+
+      def done_syncing?
+        status != Quovo::Enums::SyncStatus::SYNCING
+      end
     end
   end
 end

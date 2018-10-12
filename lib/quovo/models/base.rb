@@ -7,14 +7,14 @@ module Quovo
         if fields
           @fields = fields.map(&:to_sym)
           @fields.each do |field|
-            attr_reader field
+            attr_accessor field
           end
         else
           @fields || []
         end
       end
 
-      def initialize(props)
+      def initialize(props = {})
         props.each do |field, value|
           instance_variable_set("@#{field}", value)
         end
